@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scannify: Receipt & Tax Scanner — On-Device AI Receipt Scanner & Expense Tracker</title>
+  <meta name="description" content="Scannify: Receipt & Tax Scanner (com.scannify.receiptscanner.expensetracker). Transform paper receipts into audit-ready PDF/CSV expense reports in 3 seconds. 100% on-device AI, zero cloud backend, absolute privacy.">
+  <meta name="keywords" content="Scannify, receipt scanner, tax scanner, expense tracker, OCR receipt scanner, deductible VAT, accounting dossier PDF, private expense tracker">
+  
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:title" content="Scannify: Receipt & Tax Scanner — Smart Private Expense Tracker">
+  <meta property="og:description" content="Turn paper receipts into audit-ready accounting dossiers in 3 seconds. 100% on-device OCR, zero cloud backend, deductible VAT tracking.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adalina-rep.github.io/urls/scannify/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --primary-glow: rgba(16, 185, 129, 0.28);
+      --accent: #34d399;
+      --bg: #090d16;
+      --bg-surface: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(51, 65, 85, 0.7);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-sub: #cbd5e1;
+      --gradient-text: linear-gradient(135deg, #ffffff 0%, #34d399 50%, #10b981 100%);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 85% 35%, rgba(5, 150, 105, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.09) 0%, transparent 55%);
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    nav {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 16px var(--primary-glow);
+    }
+
+    .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: white;
+    }
+
+    .btn-nav {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 8px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: #10b981;
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 8px 18px;
+      border-radius: 9999px;
+      color: #34d399;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(34px, 5.5vw, 62px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-p {
+      color: var(--text-muted);
+      font-size: clamp(16px, 2vw, 19px);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px var(--primary-glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(16, 185, 129, 0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-sub);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    /* Trust Pill */
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      margin-bottom: 60px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Highlights Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Comparison Banner */
+    .comparison-section {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.03) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 24px;
+      padding: 44px 36px;
+      margin-bottom: 80px;
+    }
+
+    .comparison-section h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 32px;
+      color: white;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .comparison-table th {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-sub);
+    }
+
+    .comparison-table th.highlight {
+      color: #34d399;
+      font-weight: 800;
+    }
+
+    .comparison-table td {
+      padding: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .comparison-table td.highlight {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 48px 0 36px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      color: white;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #34d399;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <a href="marketing.html" class="brand">
+        <div class="brand-icon">🧾</div>
+        <span class="brand-name">Scannify</span>
+      </a>
+      <div class="nav-actions">
+        <a href="support.html" class="nav-link">Support & FAQ</a>
+        <a href="privacy_policy.html" class="nav-link">Privacy</a>
+        <a href="#features" class="btn-nav">Features</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-badge">⚡ On-Device AI &bull; Deductible Tax Tracker &bull; Zero Cloud</div>
+      <h1>Turn Paper Receipts into Audit-Ready Accounting in 3 Seconds.</h1>
+      <p class="hero-p">
+        Snap any invoice, ticket, or bill. Scannify extracts the merchant, date, amounts, and deductible VAT 100% on your device. Export certified PDF accounting dossiers with receipt photo annexes in 1 click.
+      </p>
+
+      <div class="cta-group">
+        <a href="https://play.google.com/store/apps/details?id=com.scannify.receiptscanner.expensetracker" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          <span>📲</span> Get Scannify on Google Play
+        </a>
+        <a href="support.html" class="btn-outline">
+          <span>❓</span> Help & Documentation
+        </a>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item">🔒 100% On-Device OCR (ML Kit)</div>
+        <div class="trust-item">🚫 Zero Cloud Server Uploads</div>
+        <div class="trust-item">📊 Deductible VAT / Tax Calculation</div>
+        <div class="trust-item">🌍 23 Currencies & 7 Languages</div>
+      </div>
+    </header>
+
+    <section id="features" class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📸</div>
+        <h3>Instant 3-Second OCR</h3>
+        <p>State-of-the-art optical character recognition runs completely offline on your device processor. Instantly detects vendor, total amount, taxes, and dates without waiting for server queues.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📑</div>
+        <h3>Audit-Ready Accounting Dossier</h3>
+        <p>1-click export to high-resolution accountant PDF dossiers. Includes full expense summaries, category breakdowns, tax reports, and an automatic visual appendix with full-page receipt photos.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3>Deductible VAT Tracking</h3>
+        <p>Auto-detects or customizes standard tax rates (20%, 10%, 5.5%, etc.) per receipt. Stop losing deductible VAT for quarterly declarations and freelance expense claims.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Zero Cloud & Absolute Privacy</h3>
+        <p>Your receipts, personal expenses, and company invoices never leave your phone. No user registration, no server databases, and no behavioral selling of your financial data.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Universal Excel & CSV Export</h3>
+        <p>Export clean, organized CSV spreadsheets compatible with Microsoft Excel, Google Sheets, QuickBooks, Xero, and Sage. Perfect for payroll reimbursements.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Global Currency & RTL Support</h3>
+        <p>Fully supports 23 currencies (EUR, USD, GBP, CHF, CAD, MAD, AED, SAR, etc.) and 7 languages with native Right-to-Left (RTL) Arabic layout.</p>
+      </div>
+    </section>
+
+    <section class="comparison-section">
+      <h2>Why Professionals Choose Scannify</h2>
+      <div style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="highlight">Scannify: Receipt & Tax Scanner</th>
+              <th>Typical Cloud Expense Apps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OCR Technology</td>
+              <td class="highlight">100% On-Device AI (Instant)</td>
+              <td>Remote Cloud Server (Slow & Risky)</td>
+            </tr>
+            <tr>
+              <td>Data Privacy</td>
+              <td class="highlight">100% Sandboxed Local SQLite</td>
+              <td>Centralized Database / Shared Servers</td>
+            </tr>
+            <tr>
+              <td>Account Creation</td>
+              <td class="highlight">Not Required (Zero Sign-in)</td>
+              <td>Mandatory Email & Password</td>
+            </tr>
+            <tr>
+              <td>PDF Accounting Annex</td>
+              <td class="highlight">Yes (Receipt images embedded)</td>
+              <td>Often locked behind \$15/mo tiers</td>
+            </tr>
+            <tr>
+              <td>Daily Free Scans</td>
+              <td class="highlight">Yes (Daily resets + Rewarded video)</td>
+              <td>Aggressive 7-day trials</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Scannify</h4>
+          <p style="color: var(--text-muted); font-size: 14px; max-width: 280px; margin-bottom: 12px;">
+            AI-powered receipt scanning and expense tracking built with privacy-first on-device intelligence.
+          </p>
+          <code style="background: rgba(255,255,255,0.06); padding: 4px 8px; border-radius: 6px; font-size: 12px;">com.scannify.receiptscanner.expensetracker</code>
+        </div>
+        <div class="footer-col">
+          <h4>Legal & Privacy</h4>
+          <ul>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="privacy_policy.html#gdpr">GDPR Rights</a></li>
+            <li><a href="privacy_policy.html#admob">AdMob Disclosure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support & Contact</h4>
+          <ul>
+            <li><a href="support.html">Help Center & FAQ</a></li>
+            <li><a href="mailto:siscom.info@gmail.com">siscom.info@gmail.com</a></li>
+            <li><a href="https://github.com/ADALINA-REP/urls">GitHub Repository</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ADALINA / SISCOM. All rights reserved.</div>
+        <div style="color: var(--text-muted);">Crafted for Google Play & Apple App Store Compliance</div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
