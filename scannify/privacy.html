@@ -285,10 +285,10 @@
             <td>Camera stream is used strictly for viewfinder preview and snapping receipts. Photo gallery access allows importing stored receipts.</td>
           </tr>
           <tr>
-            <td><strong>Advertising Identifiers (AdMob)</strong></td>
-            <td>—</td>
-            <td>⚠️ Yes (Google AdMob SDK)</td>
-            <td>Used by Google AdMob to deliver banner/interstitial ads and opt-in rewarded ads (e.g., unlocking free daily scans).</td>
+            <td><strong>Advertising & Tracking SDKs</strong></td>
+            <td>❌ None integrated</td>
+            <td>❌ No (Zero ad trackers)</td>
+            <td>Scannify contains zero ad networks, zero advertising identifiers (no GAID/IDFA tracking), and zero third-party marketing SDKs.</td>
           </tr>
         </tbody>
       </table>
@@ -301,19 +301,14 @@
       <li><strong>Photo Library / Storage (<code>android.permission.READ_MEDIA_IMAGES</code>):</strong> Optional permission requested only if you choose to import existing receipt photos or invoices from your gallery.</li>
     </ul>
 
-    <h2>4. Advertising & Monetization (Google AdMob)</h2>
-    <p>Scannify is funded through an optional free-tier model supported by Google AdMob. To provide free daily scans and opt-in rewarded video scans, the application integrates the <strong>Google Mobile Ads SDK (AdMob)</strong>.</p>
-    <p>Google AdMob may collect and process certain device information in accordance with Google's Privacy Policy, including:</p>
+    <h2>4. Zero Advertisements & Zero Ad Trackers</h2>
+    <p>Scannify is built to be 100% ad-free, clean, and private. Unlike traditional expense management tools that monetize user attention or sell financial profiles:</p>
     <ul>
-      <li>Mobile Advertising Identifiers (Google Advertising ID / GAID or Apple IDFA).</li>
-      <li>IP address (for coarse geographic location to serve localized ads and prevent fraud).</li>
-      <li>Anonymized diagnostic and ad interaction metrics (impressions, clicks, crash logs).</li>
+      <li><strong>No In-App Ads:</strong> There are no banner ads, interstitial popups, or rewarded video ads in Scannify.</li>
+      <li><strong>No Ad SDKs:</strong> We do not include the Google Mobile Ads SDK (AdMob), Meta Audience Network, Unity Ads, AppLovin, or any other third-party advertising SDK.</li>
+      <li><strong>No Advertising Identifiers:</strong> We do not collect, read, or transmit your Google Advertising ID (GAID) or Apple Identifier for Advertisers (IDFA).</li>
+      <li><strong>Unrestricted Features:</strong> All OCR scanning, deductible VAT computation, and audit-ready PDF/CSV exports are provided completely free and unrestricted.</li>
     </ul>
-    <p>You can manage or reset your advertising ID and opt out of personalized ads at any time via your device settings:
-      <br>• <em>Android:</em> Settings &gt; Google &gt; Ads &gt; Delete or Reset advertising ID.
-      <br>• <em>iOS:</em> Settings &gt; Privacy & Security &gt; Tracking.
-    </p>
-    <p>For more details on how Google processes ad data, please review <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600;">Google Advertising Policies & Privacy</a>.</p>
 
     <h2>5. Information We Do NOT Collect</h2>
     <p>In accordance with Google Play Developer Policies and Apple App Store Review Guidelines, we explicitly disclose that Scannify:</p>
