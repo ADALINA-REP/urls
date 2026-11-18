@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora: App Launcher &amp; Themes — Fast, Private, UHD Android Homescreen</title>
+  <meta name="description" content="Nexora: App Launcher & Themes (com.nexora.applauncher.homescreen). High-performance Android launcher with Theme Store, Smart Dock, App Drawer, Hidden Apps PIN, and on-device privacy.">
+  <meta property="og:title" content="Nexora: App Launcher & Themes — Android Homescreen Launcher">
+  <meta property="og:description" content="UHD glass & blur theming, Smart Dock, Spotlight search, and strict on-device privacy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adalina-rep.github.io/urls/nexora/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --accent: #38bdf8;
+      --bg: #070b18;
+      --surface: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.72);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      background-image:
+        radial-gradient(circle at 18% 15%, rgba(99, 102, 241, 0.18) 0%, transparent 42%),
+        radial-gradient(circle at 82% 28%, rgba(56, 189, 248, 0.14) 0%, transparent 45%);
+    }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 22px;
+    }
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .nav-links a:hover { color: #fff; }
+    .hero {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+    .pill {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.16);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .lead {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #fff; }
+    .btn-secondary { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--border); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 24px 0 64px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+    }
+    .card h3 { font-size: 17px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 14px; }
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: #a5b4fc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="brand" href="./index.html">
+        <span class="brand-badge">N</span>
+        <span>Nexora</span>
+      </a>
+      <div class="nav-links">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./support.html">Support &amp; FAQ</a>
+        <a href="mailto:siscom.info@gmail.com">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <span class="pill">com.nexora.applauncher.homescreen &bull; Android Launcher</span>
+      <h1>Nexora: App Launcher &amp; Themes</h1>
+      <p class="lead">
+        A high-performance Android homescreen crafted with UHD glassmorphism, fluid animations, curated Theme Store presets, Smart Dock adaptation, and a strict on-device privacy guarantee.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="./privacy.html">Read Privacy Policy</a>
+        <a class="btn btn-secondary" href="./support.html">Support &amp; FAQ</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Theme Store &amp; UHD Visuals</h3>
+        <p>Curated launcher themes with custom color palettes, glass blur levels, icon pack support, and UHD wallpapers.</p>
+      </div>
+      <div class="card">
+        <h3>Smart Dock &amp; App Drawer</h3>
+        <p>Instant Spotlight-style app &amp; calculator search, alphabetical A–Z indexing, folders, and adaptive most-used dock shortcuts.</p>
+      </div>
+      <div class="card">
+        <h3>Privacy &amp; Hidden Apps</h3>
+        <p>Optional 4-digit PIN lock for hidden apps, zero analytics trackers, zero ad SDKs, and full local Backup &amp; Restore.</p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 ADALINA / SISCOM &bull; <a href="./privacy.html">Privacy Policy</a> &bull; <a href="./support.html">Help Center</a>
+    </footer>
+  </div>
+</body>
+</html>

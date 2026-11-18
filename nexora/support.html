@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support &amp; Help Center - Nexora: App Launcher &amp; Themes</title>
+  <meta name="description" content="Official Support & Help Center for Nexora: App Launcher & Themes (com.nexora.applauncher.homescreen). FAQs, permission guides, and support contact.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --primary-light: #eef2ff;
+      --accent: #6366f1;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius: 16px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 36px 16px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      padding: 48px 42px;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 8px; }
+      .container { padding: 28px 20px; border-radius: 12px; }
+    }
+
+    .header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle { color: var(--text-muted); font-size: 15px; }
+
+    code {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+
+    .support-card {
+      background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+      color: white;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 36px;
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+    }
+
+    .support-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .support-card p {
+      color: #e0e7ff;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ffffff;
+      color: var(--primary-dark);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    details {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      padding: 16px 20px;
+      transition: all 0.2s ease;
+    }
+
+    details[open] {
+      background-color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+    }
+
+    summary {
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      color: var(--text-main);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    details[open] summary::after { content: '−'; }
+
+    .faq-content {
+      margin-top: 14px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid #edf2f7;
+      padding-top: 12px;
+    }
+
+    .faq-content ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <span class="badge">Official Help Center</span>
+      <h1>Help &amp; Support</h1>
+      <div class="subtitle">
+        <strong>Nexora: App Launcher &amp; Themes</strong> &bull; Package: <code>com.nexora.applauncher.homescreen</code>
+      </div>
+    </header>
+
+    <div class="support-card">
+      <h2>Need Help or Have a Question?</h2>
+      <p>Our product and engineering team is ready to help with setup, themes, permissions, or bug reports. Email us anytime and we typically respond within 24–48 hours.</p>
+      <a href="mailto:siscom.info@gmail.com?subject=Nexora%20Launcher%20Support%20Request" class="btn">
+        Contact Support (siscom.info@gmail.com)
+      </a>
+    </div>
+
+    <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
+
+    <details open>
+      <summary>How do I set Nexora as my default Android home screen?</summary>
+      <div class="faq-content">
+        <p>Open <strong>Nexora Settings &rarr; Set as Default Launcher</strong>, or go to your phone’s <strong>Settings &rarr; Apps &rarr; Default apps &rarr; Home app</strong> and select <strong>Nexora</strong>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Why are Accessibility, Notification, and Usage permissions optional?</summary>
+      <div class="faq-content">
+        <p>Nexora runs cleanly without any special permissions. Each optional permission unlocks only its specific feature and stays strictly on-device:</p>
+        <ul>
+          <li><strong>Accessibility Service:</strong> Enables double-tap to lock screen and swipe-down to expand the notification shade (<code>canRetrieveWindowContent="false"</code>).</li>
+          <li><strong>Notification Access:</strong> Counts active notifications per app to draw unread numeric badges without reading message contents.</li>
+          <li><strong>Usage Access:</strong> Improves Smart Dock &amp; Suggested app ranking locally on your phone.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>How does the Smart Dock choose apps?</summary>
+      <div class="faq-content">
+        <p>By default, Nexora populates the dock with familiar essential apps (Phone, Messages, Browser, Camera, Photos) and ranks them dynamically as you launch apps from Nexora (or from Android Usage Stats if enabled). You can also customize your dock icons at any time.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I back up, restore, or reset my layout?</summary>
+      <div class="faq-content">
+        <p>Go to <strong>Nexora Settings &rarr; Backup &amp; Restore</strong> to export your homescreen layout, folders, and preferences as JSON text, import an existing backup, or reset your launcher configuration.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Does Nexora track me or show ads?</summary>
+      <div class="faq-content">
+        <p><strong>No.</strong> Nexora contains zero ad networks and zero analytics trackers. Only city search / forecasts for the optional Weather widget connect to Open-Meteo using your chosen city or coordinates.</p>
+      </div>
+    </details>
+
+    <div class="nav-links">
+      <a href="index.html">&larr; Back to Nexora Home</a>
+      <a href="privacy.html">Read Privacy Policy &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 ADALINA / SISCOM. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -24,5 +24,12 @@ This repository hosts official privacy policies and support pages for mobile app
 - **Support & FAQ**: [Get Support](https://adalina-rep.github.io/urls/fileease/support.html) (or [Local View](fileease/support.html))
 - **Support Contact Email**: siscom.info@gmail.com
 
+### Nexora: App Launcher & Themes
+- **Package / Application ID**: com.nexora.applauncher.homescreen
+- **Website & Overview**: [Nexora Portal](https://adalina-rep.github.io/urls/nexora/index.html) (or [Local View](nexora/index.html))
+- **Privacy Policy**: [Read Privacy Policy](https://adalina-rep.github.io/urls/nexora/privacy.html) (or [Local View](nexora/privacy.html))
+- **Support & FAQ**: [Get Support](https://adalina-rep.github.io/urls/nexora/support.html) (or [Local View](nexora/support.html))
+- **Support Contact Email**: siscom.info@gmail.com
+
 ---
 &copy; 2026 ADALINA. All rights reserved.
